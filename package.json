@@ -1,0 +1,29 @@
+{
+  "name": "serviceworker-config-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Webpack plugin for injecting variables into your serviceworker scripts",
+  "main": "index.js",
+  "dependencies": {
+    "minimatch": "^3.0.3",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^2.0.29",
+    "@types/node": "^6.0.41",
+    "@types/webpack": "^1.12.34",
+    "typescript": "^2.0.3"
+  },
+  "scripts": {
+    "start": "tsc --outdir ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davinche/serviceworker-config-webpack-plugin.git"
+  },
+  "author": "Vincent Cheung <hello@mynameisvincent.com> (https://mynameisvincent.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davinche/serviceworker-config-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/davinche/serviceworker-config-webpack-plugin#readme"
+}

@@ -149,9 +149,9 @@ var ServiceWorkerConfigPlugin = (function () {
                                 return Buffer.byteLength(sourceStr_1, 'utf8');
                             }
                         };
-                        doneCallback();
                     }
                 }
+                doneCallback();
             });
         });
     };

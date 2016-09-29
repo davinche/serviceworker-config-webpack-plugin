@@ -82,5 +82,5 @@ new ServiceWorkerPlugin({
 - `entry`: serviceworker source
 - `excludes`: array of glob patterns corresponding to files you want to exclude from `SW_ASSETS`
 - `publicPath`: prefix to where your serviceworker will be output to
-- `inject`: an object where the top level fields are variables to be injected your serviceworker
+- `inject`: an object where the top level fields are variables to be injected into your serviceworker
 

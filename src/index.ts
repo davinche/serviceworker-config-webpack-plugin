@@ -172,9 +172,9 @@ class ServiceWorkerConfigPlugin {
                                 return Buffer.byteLength(sourceStr, 'utf8');
                             }
                         }
-                        doneCallback();
                     }
                 }
+                doneCallback();
             });
         });
     }

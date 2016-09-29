@@ -1,10 +1,10 @@
 # Webpack ServiceWorker Config Plugin
 
-A webpack for injecting variables into the serviceworker.
+A webpack plugin for injecting variables into a serviceworker.
 
 ## Usage
 
-In your webpack.config.js file:
+In `webpack.config.js`:
 
 ```javascript
 
@@ -24,14 +24,17 @@ module.exports {
 }
 ```
 
-The entry option can be in one of 3 forms:
+`entry` can be in one of the following:
 
 1. String: `entry: 'myserviceworker.js'`
 2. Object: `entry: {file: 'myserviceworker.js', output: 'sw.js'}`
-3. An array (for multiple serviceworkers) of string or objects: `entry: ['sw1.js', 'sw2.js']` OR `[{file: 'sw1.js', output: 'homePageSw.js'}...]`
+3. Array (for multiple serviceworkers): `entry: ['sw1.js', 'sw2.js']` OR `[{file: 'sw1.js', output: 'homePageSw.js'}...]`
+
+If the entry provided is a string (as a string itself or a string in the array), the default output name will be the same
+as the entry.
 
 
-In your app, register the serviceworker with the filename.
+In your app, register the serviceworker with the output filename.
 
 eg:
 
@@ -43,26 +46,27 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-The resulting serviceworker will have the variables injected at the top:
+Following the example above, the serviceworker will have the following custom variables injected at the top:
 
 ```javascript
 var CONFIG_1 = 'my data';
 var CONFIG_2 = 'my other config data';
 ```
 
-There will always be at least one variable (SW_ASSETS) injected into the serviceworker.
-You use this variable to cache resources.
-This is inspired by the [Webpack Manifest Plugin](https://github.com/danethurber/webpack-manifest-plugin)
+There will always be at least one variable (SW_ASSETS) injected into serviceworkers.
+You use this variable to cache network assets.
+This is inspired by the [Webpack Manifest Plugin](https://github.com/danethurber/webpack-manifest-plugin).
 
 ```javascript
 var SW_ASSETS = {
-  "myimage.jpg": "myimage.sdafz9012909fd0adf.jpg"
+  "myimage.jpg": "myimage.sdafz9012909fd0adf.jpg",
+  "mycss.css": "mycss.asdf901290an.css"
 }
 ```
 
 ## Configuration
 
-The plugin is configuration with the following options:
+The plugin can be configured with the following options:
 
 ```javascript
 new ServiceWorkerPlugin({
@@ -75,8 +79,8 @@ new ServiceWorkerPlugin({
 
 ### Options
 
-- `entry`: the source for your serviceworker to inject variables into
-- `excludes`: any assets you want to exclude from thw `SW_ASSETS` object
-- `publicPath`: a prefix for where your serviceworker will live in
-- `inject`: an object where the top level fields are variables to be injected into your serviceworker
+- `entry`: serviceworker source
+- `excludes`: array of glob patterns corresponding to files you want to exclude from `SW_ASSETS`
+- `publicPath`: prefix to where your serviceworker will be output to
+- `inject`: an object where the top level fields are variables to be injected your serviceworker
 

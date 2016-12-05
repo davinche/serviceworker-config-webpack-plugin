@@ -2,6 +2,8 @@
 
 A webpack plugin for injecting variables into a serviceworker.
 
+`npm i serviceworker-config-webpack-plugin`
+
 ## Usage
 
 In `webpack.config.js`:
